@@ -1,51 +1,54 @@
-// src/components/FormularioAvaliacao.jsx
-
+// Importação padrão do react
 import { useState } from "react";
-// IMPORTANDO AS IMAGENS
+
+// Importando as imagens
 import starIcon from "../assets/star.svg";
+import starSelected from "../assets/star-selected.svg"
 import like from "../assets/like.svg";
 import deslike from "../assets/deslike.svg";
+import likeGreen from "../assets/likeGreen.svg"
+import deslikeRed from "../assets/deslikeRed.svg"
 
 function FormularioAvaliacao() {
-  // --- ESTADOS (A memória do componente) ---
+  // Estados do componente
   const [nota, setNota] = useState(0);
-  const [resolvido, setResolvido] = useState(null); // null = sem resposta
+  const [resolvido, setResolvido] = useState(null);
   const [comentario, setComentario] = useState("");
-  const estrelas = [1, 2, 3, 4, 5]; // Um array para representar nossas 5 estrelas
+  const estrelas = [1, 2, 3, 4, 5]; // Um array para representar as 5 estrelas
 
-  // --- FUNÇÕES (As ações do componente) ---
+  // Função do componete
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Validação simples para garantir que responderam
+    // Validação simples
     if (!resolvido) {
       alert("Por favor, informe se sua solicitação foi resolvida.");
       return; // Para a execução da função
     }
 
-    const avaliacaoCompleta = { nota, resolvido, comentario }; // Forma curta de escrever {nota: nota, ...}
+    const avaliacaoCompleta = { nota, resolvido, comentario }; //Objeto que guarda as respostas
     console.log("Avaliação enviada:", avaliacaoCompleta);
     alert("Obrigado pela sua avaliação!");
   };
 
-  // --- RENDERIZAÇÃO (A parte visual do componente) ---
+  // Parte visual do componente
   return (
     <main>
       <div className="container-form">
         <p>Como você avalia sua experiência com o atendimento prestado por Railson em 02/09/2025 às 15:36?</p>
 
         <form onSubmit={handleSubmit}>
+
           {/* Seção de Estrelas*/}
           <div className="rating">
             <label>Clique em uma ou mais estrelas para avaliar</label>
             <div>
               {estrelas.map((valorEstrela) => (
                 <img
-                  key={valorEstrela} // Chave única para cada item da lista, essencial em loops no React
-                  src={starIcon}
+                  key={valorEstrela}
+                  src={nota >= valorEstrela ? starSelected : starIcon}
                   alt={`Estrela ${valorEstrela}`}
                   onClick={() => setNota(valorEstrela)}
-                  // A classe muda se a nota for maior ou igual ao valor da estrela
                   className={
                     nota >= valorEstrela
                       ? "estrela-selecionada"
@@ -55,20 +58,18 @@ function FormularioAvaliacao() {
               ))}
             </div>
           </div>
+
           <div className="feedback">
             <p>Sua solicitação foi resolvida?</p>
             <div>
               <img
-                src={like} // Usando a variável importada
+                src={resolvido === "sim" ? likeGreen : like}
                 alt="Gostei"
                 onClick={() => setResolvido("sim")}
-                className={resolvido === "sim" ? "selecionado" : ""}
               />
               <img
-                src={deslike} // Usando a variável importada
-                alt="Não Gostei"
+                src={resolvido === "nao" ? deslikeRed : deslike}
                 onClick={() => setResolvido("nao")}
-                className={resolvido === "nao" ? "selecionado" : ""}
               />
             </div>
           </div>
@@ -87,9 +88,7 @@ function FormularioAvaliacao() {
 
           <div className="buttons">
             <button type="button">DESCONHEÇO O ATENDIMENTO</button>
-            <button type="submit" className="btn-enviar">
-              ENVIAR
-            </button>
+            <button type="submit" className="btn-enviar">ENVIAR</button>
           </div>
         </form>
       </div>

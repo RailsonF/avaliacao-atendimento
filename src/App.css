@@ -6,7 +6,6 @@
   --cor-texto-claro: #EAEAEA;
   --cor-texto-escuro: #333333;
   --cor-borda-suave: #DDDDDD;
-  --cor-estrela-selecionada: #FFC107;
 }
 
 /*RESET DE ESTILOS*/
@@ -15,6 +14,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -60,7 +60,6 @@ main {
 }
 
 /*Estilos do formulário*/
-
 .container-form {
   background-color: var(--cor-fundo-card);
   color: var(--cor-texto-escuro);
@@ -102,10 +101,7 @@ form label {
 
 .rating img.estrela-selecionada {
   opacity: 1;
-  ;
-  border-radius: 50%;
-  padding: 3px;
-  transform: scale(1.15); /* Efeito de destaque */
+  padding: 3px;  
 }
 
 /* --- Seção de Feedback (Joinha) --- */
@@ -118,11 +114,6 @@ form label {
   border: 2px solid transparent; /* Borda invisível para não "pular" ao selecionar */
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
-}
-
-.feedback img.selecionado {
-  background-color: #e9f3ff;
-  border-color: var(--cor-primaria);
 }
 
 /* --- Seção de Comentário --- */
@@ -195,6 +186,6 @@ textarea:focus {
 footer {
   text-align: center;
   border-top: 1px solid #333;
-  font-size: 0.8rem;
-  color: #888;
+  font-size: 1rem;
+  color: white;
 }
