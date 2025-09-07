@@ -21,6 +21,6 @@ export default defineConfig({
   },
   // Adicione esta seção para configurar variáveis HTML
   define: {
-    'import.meta.env.VITE_APP_TITLE': JSON.stringify('Seu Título Personalizado')
+    'import.meta.env.VITE_APP_TITLE': JSON.stringify('Avaliação de Atendimento')
   }
 })

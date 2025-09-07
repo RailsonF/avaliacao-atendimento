@@ -189,3 +189,28 @@ footer {
   font-size: 1rem;
   color: white;
 }
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+@media (max-width: 620px) {
+
+  /* Ajusta o card principal para ocupar mais a tela */
+  .container-form {
+    width: 90%; /* Ocupa 90% da largura da tela */
+    padding: 20px; /* Um pouco menos de preenchimento nas laterais */
+  }
+  
+  /* Diminuindo um pouco a fonte principal para caber melhor */
+  .container-form > p {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column; /* Colocando os botões em coluna */
+    gap: 15px; /* Adicionando um espaço entre eles */
+  }
+
+  /* Garantindo que os botões ocupem a largura toda */
+  .buttons button {
+    width: 100%;
+  }
+}
