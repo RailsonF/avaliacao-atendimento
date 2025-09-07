@@ -1,4 +1,4 @@
-import logo from "../assets/logoRS.svg"
+import logo from "../assets/LogoRS.svg"
 function Header() {
   //vai retornar o HTMl que vai ser renderizado
   return (
